@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Aliens - Alien Task Agency</title>
+    <style>
+        /* Common styles for both themes */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        header {
+            background-color: #8b0000;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        section {
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        section h2 {
+            color: #8b0000;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Red/Black theme */
+        body.red-black-buy {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        header.red-black-buy {
+            background-color: #8b0000;
+        }
+
+        nav.red-black-buy {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        section.red-black-buy {
+            background-color: #1a1a1a;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        ul.red-black-buy {
+            color: #fff;
+        }
+
+        /* Cart styles */
+        section.cart {
+            margin-top: 20px;
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .checkout-btn {
+            background-color: #8b0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body class="red-black-buy">
+
+    <header class="red-black-buy">
+        <h1>Buy Aliens</h1>
+        <p>Select your extraterrestrial companions</p>
+    </header>
+
+    <nav class="red-black-buy">
+        <a href="index.html">Home</a>
+        <a href="farmer_aliens.html">Farmer</a>
+        <a href="cooking_aliens.html">Cook</a>
+        <a href="builder_aliens.html">Builder</a>
+        <a href="cleaner_aliens.html">Cleaner</a>
+    </nav>
+
+    <section class="red-black-buy">
+        <h2>Available Aliens</h2>
+        <ul>
+            <li>
+                <strong>Farmer Alien</strong> - $50000.99
+                <button onclick="addToCart('Farmer Alien', 50000.99)">Add to Cart</button>
+            </li>
+            <li>
+                <strong>Cooking Alien</strong> - $45000.99
+                <button onclick="addToCart('Cooking Alien', 45000.99)">Add to Cart</button>
+            </li>
+            <li>
+                <strong>Builder Alien</strong> - $75000.99
+                <button onclick="addToCart('Builder Alien', 75000.99)">Add to Cart</button>
+            </li>
+            <li>
+                <strong>Cleaner Alien</strong> - $60000.99
+                <button onclick="addToCart('Cleaner Alien', 60000.99)">Add to Cart</button>
+            </li>
+        </ul>
+    </section>
+
+    <section class="cart red-black-buy">
+        <h2>Shopping Cart</h2>
+        <div id="cartItems"></div>
+        <p>Total: $<span id="totalPrice">0</span></p>
+        <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </section>
+
+    <script>
+        
+        let cart = [];
+        let total = 0;
+
+        function addToCart(alien, price) {
+            cart.push({ alien, price });
+            total += price;
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartItemsDiv = document.getElementById('cartItems');
+            cartItemsDiv.innerHTML = '';
+            cart.forEach(item => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item');
+                cartItemDiv.innerHTML = `
+                    <span>${item.alien} - $${item.price}</span>
+                    <button onclick="removeFromCart('${item.alien}', ${item.price})">Remove</button>
+                `;
+                cartItemsDiv.appendChild(cartItemDiv);
+            });
+
+            // Update total price
+            document.getElementById('totalPrice').innerText = total;
+        }
+
+        function removeFromCart(alien, price) {
+            const index = cart.findIndex(item => item.alien === alien && item.price === price);
+            if (index !== -1) {
+                total -= price;
+                cart.splice(index, 1);
+                updateCartDisplay();
+            }
+        }
+
+        function checkout() {
+            alert(`Your total comes out to:\n${cart.map(item => `${item.alien} - $${item.price}`).join('\n')}\nTotal: $${total}`);
+            cart = [];
+            total = 0;
+            updateCartDisplay();
+        }
+    </script>
+
+</body>
+
+</html>

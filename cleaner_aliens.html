@@ -6,94 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cleaner Aliens - Alien Task Agency</title>
     <style>
-        /* Common styles for both themes */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            transition: background-color 0.5s, color 0.5s;
+            background-color: #1a1a1a;
+            color: #fff;
         }
 
         header {
+            background-color: #8b0000;
+            color: #fff;
             padding: 1em;
             text-align: center;
         }
 
         nav {
+            background-color: #1a1a1a;
+            color: #fff;
             text-align: center;
             padding: 1em;
         }
 
         nav a {
+            color: #fff;
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
         }
 
-        section.content {
+        section {
+            padding: 20px;
+        }
+
+        section.services,
+        section.team,
+        form {
+            background-color: #1a1a1a;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
             margin-top: 20px;
             padding: 20px;
         }
 
-        section.content h2 {
+        section.services h2,
+        section.team h2,
+        form h2 {
             color: #8b0000;
         }
 
-        section.content p {
+        section.services ul,
+        section.team div,
+        form p {
             color: #fff;
         }
 
-        footer {
+        section.team {
             background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            padding: 20px;
         }
 
-        /* Red/Black theme */
-        body.red-black-cleaner {
+        form {
+            max-width: 600px;
+            margin: 0 auto;
             background-color: #1a1a1a;
-            color: #fff;
-        }
-
-        header.red-black-cleaner {
-            background-color: #8b0000;
-        }
-
-        nav.red-black-cleaner {
-            background-color: #1a1a1a;
-            color: #fff;
-        }
-
-        section.content.red-black-cleaner {
-            background-color: #1a1a1a;
+            border-radius: 8px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            padding: 20px;
         }
 
-        /* Red/White theme */
-        body.red-white-cleaner {
-            background-color: #fff;
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #8b0000;
+            border-radius: 4px;
+            box-sizing: border-box;
             color: #333;
+            background-color: #fff;
         }
 
-        header.red-white-cleaner {
+        form button {
             background-color: #8b0000;
             color: #fff;
-        }
-
-        nav.red-white-cleaner {
-            background-color: #1a1a1a;
-            color: #fff;
-        }
-
-        section.content.red-white-cleaner {
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -102,19 +108,31 @@
 
     <header class="red-black-cleaner">
         <h1>Cleaner Aliens</h1>
-        <p>Exploring the extraterrestrial expertise in maintaining cosmic cleanliness</p>
+        <p>In the vast expanse of the universe, where celestial bodies dance in cosmic ballets and unknown wonders await discovery, imagine encountering beings dedicated to the maintenance of cleanliness on an interstellar scale. Enter the realm of cleaning aliens, extraterrestrial custodians equipped with advanced technologies and an unwavering commitment to ensuring the hygienic harmony of the cosmos.</p>
+        <p>Cleaning aliens boast a repertoire of cutting-edge interstellar cleaning devices that transcend earthly notions of brooms and vacuums. From antimatter-powered sweepers to quantum scrubbers, these advanced tools effortlessly navigate through the intricate patterns of cosmic dust and debris, ensuring that the vast expanses between galaxies remain pristine.</P>
+        <p>Leveraging the principles of quantum mechanics, cleaning aliens employ innovative sanitization methods that surpass conventional understandings of cleanliness. Quantum entanglement is harnessed to simultaneously cleanse multiple areas of the universe, making their efforts both efficient and instantaneous. The result is a harmonious balance in the quantum cleanliness of the cosmos.</P>
+        <p>Cosmic dust, the remnants of celestial processes, poses a challenge for maintaining a tidy cosmic environment. Cleaning aliens excel in the management of cosmic dust, employing gravitational manipulation and nanotechnology to gather and repurpose these minuscule particles. The collected cosmic dust often finds applications in the creation of new celestial bodies or as raw materials for extraterrestrial construction projects.</P>
+        <p>Just as human cities have sanitation crews, cleaning aliens deploy UFO cleaning crews equipped with advanced cloaking devices and anti-gravity technology. These crews navigate through space, attending to the maintenance of spacecraft, satellites, and other extraterrestrial structures. The result is a pristine cosmic landscape where technological artifacts gleam with otherworldly brilliance.</P>
+        <p>Sustainability is a key aspect of the cleaning alien's mission. They have developed intergalactic recycling systems capable of transforming waste materials into energy sources or reusable resources. This commitment to ecological balance ensures that the cosmic ecosystem remains vibrant and sustainable for eons to come.</P>
+        <p>In the tapestry of the universe, cleaning aliens emerge as silent yet vital custodians, diligently working to maintain the hygiene of the cosmos. Their capabilities, ranging from quantum sanitization to intergalactic recycling, showcase a level of technological sophistication that transcends our terrestrial understanding. As we explore the possibilities of extraterrestrial life, the role of cleaning aliens serves as a testament to the diversity of cosmic responsibilities and the potential for collaboration in the grand narrative of the universe. Through their cosmic custodianship, cleaning aliens contribute to the awe-inspiring beauty and order of the cosmos, reminding us that even in the boundless expanse of space, cleanliness is indeed next to godliness.</P>
+        
+
+
+
+
+
     </header>
 
-    <nav class="red-black-cleaner">
+    <nav>
         <a href="index.html">Home</a>
-        <a href="farmer_aliens.html">farmer</a>
-        <a href="cooking_aliens.html">cook</a>
-        <a href="building_alien.html">builder</a>
+        <a href="farmer_aliens.html">Farming alien</a>
+        <a href="cooking_aliens.html">Cooking alien</a>
+        <a href="builder_aliens.html">Building alien</a>
+        <a href="buy_aliens.html">Cart</a>
     </nav>
 
     <section class="content red-black-cleaner">
-        <h2>Unveiling the Expertise of Cleaner Aliens</h2>
-        <p>Discover the impeccable cleaning skills of extraterrestrial cleaners. Our researchers delve into the advanced techniques and cosmic technologies employed by cleaner aliens to maintain celestial hygiene.</p>
+        <h2>The Marvels of Cleaning Aliens: Extraterrestrial Custodians of Cosmic Hygiene</h2>
         <p>Topics covered include:</p>
         <ul>
             <li>Interstellar Cleaning Devices</li>
@@ -125,9 +143,23 @@
         </ul>
     </section>
 
-    <footer>
-        <p>Back to <a href="index.html">Alien Task Agency</a></p>
-    </footer>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have a mission for us? Reach out using the form below:</p>
+        <form>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
 
 </body>
 
