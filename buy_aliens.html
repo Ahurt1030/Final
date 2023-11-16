@@ -21,26 +21,37 @@
         <a href="cooking_aliens.html">Cook</a>
         <a href="builder_aliens.html">Builder</a>
         <a href="cleaner_aliens.html">Cleaner</a>
+        <a href="submitForm.html">Contact us</a>
     </nav>
 
     <section class="red-black-buy">
         <h2>Available Aliens</h2>
         <ul>
             <li>
-                <strong>Farmer Alien</strong> - $50000.99
+                <strong>Farmer Alien</strong> - $50,000.99
+                <p>Bring the expertise of a Farmer Alien to enhance agricultural practices on your farm. They come equipped with advanced farming knowledge from across galaxies.</p>
                 <button onclick="addToCart('Farmer Alien', 50000.99)">Add to Cart</button>
             </li>
             <li>
-                <strong>Cooking Alien</strong> - $45000.99
+                <strong>Cooking Alien</strong> - $45,000.99
+                <p>Experience a culinary revolution with a Cooking Alien. They introduce unique ingredients and cooking techniques that will elevate your gastronomic journey.</p>
                 <button onclick="addToCart('Cooking Alien', 45000.99)">Add to Cart</button>
             </li>
             <li>
-                <strong>Builder Alien</strong> - $75000.99
+                <strong>Builder Alien</strong> - $75,000.99
+                <p>Speed up your construction projects with the expertise of a Builder Alien. They bring advanced technology and efficiency to your building endeavors.</p>
                 <button onclick="addToCart('Builder Alien', 75000.99)">Add to Cart</button>
             </li>
             <li>
-                <strong>Cleaner Alien</strong> - $60000.99
+                <strong>Cleaner Alien</strong> - $60,000.99
+                <p>Maintain cosmic hygiene with the help of a Cleaner Alien. They utilize cutting-edge cleaning technologies for a pristine environment.</p>
                 <button onclick="addToCart('Cleaner Alien', 60000.99)">Add to Cart</button>
+            </li>
+            <li>
+                <strong>Galactic Bundle</strong> - $180,000.99 (Save $15,000)
+                <p>Get the ultimate extraterrestrial experience with the Galactic Bundle. It includes a Farmer Alien, Cooking Alien, Builder Alien, and Cleaner Alien, providing a well-rounded team for various tasks.</p>
+                <p>Limit: 4 bundles per customer</p>
+                <button onclick="addToCart('Galactic Bundle', 180000.99)">Add to Cart</button>
             </li>
         </ul>
     </section>
@@ -53,13 +64,24 @@
     </section>
 
     <script>
-        
         let cart = [];
         let total = 0;
+        let galacticBundleCount = 0;
+        const maxGalacticBundles = 4;
 
         function addToCart(alien, price) {
+            if (alien === 'Galactic Bundle' && galacticBundleCount >= maxGalacticBundles) {
+                alert(`Sorry, you can only purchase up to ${maxGalacticBundles} Galactic Bundles.`);
+                return;
+            }
+
             cart.push({ alien, price });
             total += price;
+
+            if (alien === 'Galactic Bundle') {
+                galacticBundleCount++;
+            }
+
             updateCartDisplay();
         }
 
@@ -76,7 +98,6 @@
                 cartItemsDiv.appendChild(cartItemDiv);
             });
 
-            // Update total price
             document.getElementById('totalPrice').innerText = total;
         }
 
@@ -84,6 +105,11 @@
             const index = cart.findIndex(item => item.alien === alien && item.price === price);
             if (index !== -1) {
                 total -= price;
+
+                if (alien === 'Galactic Bundle') {
+                    galacticBundleCount--;
+                }
+
                 cart.splice(index, 1);
                 updateCartDisplay();
             }
@@ -93,6 +119,7 @@
             alert(`Your total comes out to:\n${cart.map(item => `${item.alien} - $${item.price}`).join('\n')}\nTotal: $${total}`);
             cart = [];
             total = 0;
+            galacticBundleCount = 0;
             updateCartDisplay();
         }
     </script>
